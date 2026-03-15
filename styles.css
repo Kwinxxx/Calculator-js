@@ -1,0 +1,122 @@
+:root {
+  --color-bg-btn: #FBFBFD;
+  --color-bg-light: #DAF0FF;
+  --color-bg-btn-action: #ADE1FF;
+  --color-btn: #38B9FF;
+  --color-btn-action: #109DFF;
+  --color-btn-delete: #858585;
+  --color-calculator-bg: #F7F8FB;
+}
+
+
+body {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+}
+
+button{
+  position: relative;
+  font-weight: 700;
+  font-size: 30px;
+  font-family: 'Poppins', sans-serif;
+  color: var(--color-btn);
+  border-radius: 10px;
+  padding: 10px;
+  border: 1px solid #ffffff;
+  background-color: var(--color-bg-btn);
+  align-items: center;
+  text-align: center;
+  cursor: pointer;
+}
+
+img {
+  position: absolute;
+  top: 40%;
+  right: 34%;
+}
+
+.btn-dot,
+.btn-dot > span{
+  font-size: 30px;
+  grid-row-start: 6;
+  grid-column-start: 2;
+}
+
+
+.calculator {
+  border-radius: 20px;
+  border: 1px solid var(--color-bg-btn-action);
+  padding: 20px;
+  background-color: var(--color-calculator-bg);
+}
+
+.btn-action,
+.btn-equal{
+  background-color: var(--color-bg-btn-action);
+  color: var(--color-btn-action);
+}
+
+main {
+  display: flex;
+  justify-content: center;
+  min-height: 100vh;
+  align-items: center;
+}
+
+.btn-clear {
+  background-image: url("./images/delete.png");
+  background-repeat: no-repeat;
+  background-position-x:  center;
+  background-position-y:  center;
+}
+
+.answer__section {
+  display: flex;
+  min-height: 200px;
+  border: 1px solid var(--color-bg-btn-action);
+  margin-bottom: 20px;
+  border-radius: 10px;
+}
+
+.answer {
+  width: 100%;
+  text-align: end;
+  font-weight: 600;
+  font-size: 50px;
+  display: inline;
+  overflow: hidden;
+  margin-inline: 10px;
+  margin-block: auto;
+  color: var(--color-btn);
+}
+
+.work__section {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  grid-template-rows: repeat(4, 1fr);
+  gap: 20px;
+}
+
+.btn-zero {
+  grid-column-start: 1;
+  grid-row-start: 6;
+}
+
+
+.btn-equal {
+  grid-row-start: 6;
+  grid-column-start: 3;
+  grid-column: span 2;
+  border: 0;
+  -webkit-box-shadow: -9px 13px 23px 15px rgba(0, 163, 255, 0.2);
+  -moz-box-shadow: -9px 13px 23px 15px rgba(0, 163, 255, 0.2);
+  box-shadow: -9px 13px 23px 15px rgba(0, 163, 255, 0.2);
+}
+
+
+.btn-plus {
+  grid-row: span 2/ span 2;
+  grid-column-start: 4;
+  grid-column-end: 4;
+}

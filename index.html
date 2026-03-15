@@ -7,9 +7,43 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Calculator</title>
   <link rel="stylesheet" href="styles.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap" rel="stylesheet">
 </head>
 <body>
-  
+  <main>
+    <div class="calculator" data-js-calc>
+      <div class="answer__section">
+        <div class="answer-history" data-js-history></div>
+        <div class="answer" data-js-answer></div>
+      </div>
+      <div class="work__section">
+<!--        <button class="btn">e</button>-->
+<!--        <button class="btn "><span class="btn-dot">.</span></button>-->
+<!--        <button class="btn">sin</button>-->
+<!--        <button class="btn">deg</button>-->
+        <button class="btn" data-js-clear-all>Ac</button>
+        <button class="btn btn-clear" data-js-clear></button>
+        <button class="btn btn-action" data-js-operation>/</button>
+        <button class="btn" data-js-operation>*</button>
+        <button class="btn" id="7" data-js-is-digit>7</button>
+        <button class="btn" id="8" data-js-is-digit>8</button>
+        <button class="btn" id="9" data-js-is-digit>9</button>
+        <button class="btn btn-action" data-js-operation>-</button>
+        <button class="btn" id="4" data-js-is-digit>4</button>
+        <button class="btn" id="5" data-js-is-digit>5</button>
+        <button class="btn" id="6" data-js-is-digit>6</button>
+        <button class="btn btn-action btn-plus" data-js-operation>+</button>
+        <button class="btn" id="1" data-js-is-digit>1</button>
+        <button class="btn" id="2" data-js-is-digit>2</button>
+        <button class="btn" id="3" data-js-is-digit>3</button>
+        <button class="btn btn-zero" id="0" data-js-is-digit>0</button>
+        <button class="btn btn-dot">.</button>
+        <button class="btn btn-equal" data-js-equal>=</button>
+      </div>
+    </div>
+  </main>
   <script src="script.js"></script>
 </body>
 </html>
