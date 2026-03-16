@@ -55,11 +55,15 @@ class CalculatorUI {
     equal: '[data-js-equal]',
     clearAll: '[data-js-clear-all]',
     clear: '[data-js-clear]',
+    operation: '[data-js-operation]',
+    digit: '[data-js-is-digit]',
   }
 
   handleDigit(digit) {
     const answerElement = document.querySelector(this.selectors.answer);
     const calc = this.calculator;
+
+
     if (calc.operation === null) {
       calc.firstNum = (calc.firstNum ?? '') + digit;
     } else {
@@ -68,16 +72,19 @@ class CalculatorUI {
   }
 
   handleOperation(operation) {
-  const calc = this.calculator;
-  const answerElement = document.querySelector(this.selectors.answer);
-  answerElement.textContent += operation;
-  calc.operation = operation;
-}
+    const calc = this.calculator;
+    const answerElement = document.querySelector(this.selectors.answer);
+    if ( calc.firstNum ?? '') {
+      
+    }
+    answerElement.textContent += operation;
+    calc.operation = operation;
+  }
 
   bindEvent() {
     const calcElement = document.querySelector(this.selectors.root);
-    const digitButtons = document.querySelectorAll('[data-js-is-digit]');
-    const operationsButtons = document.querySelectorAll('[data-js-operation]')
+    const digitButtons = document.querySelectorAll(this.selectors.digit);
+    const operationsButtons = document.querySelectorAll(this.selectors.operation);
     const historyElement = document.querySelector(this.selectors.history);
     const answerElement = document.querySelector(this.selectors.answer);
     const equalElement = document.querySelector(this.selectors.equal);
@@ -86,6 +93,10 @@ class CalculatorUI {
 
     digitButtons.forEach((button) => {
       button.addEventListener('click', () => {
+        if (answerElement.textContent === 'Error') {
+          answerElement.textContent = ''
+        }
+
         answerElement.textContent += button.textContent;
         this.handleDigit(button.textContent);
       })
@@ -122,17 +133,17 @@ class CalculatorUI {
         case clearAllElement:
           calc.clear();
           answerElement.textContent = null
+          historyElement.textContent = null
 
 
         case equalElement:
           const result = calc.calculate();
           const history = answerElement.textContent;
-          historyElement.textContent = history + '=';
+          historyElement.textContent = history + equalElement.textContent;
           answerElement.textContent = result;
           this.calculator.firstNum = result
           this.calculator.secondNum = null
           break
-
       }
 
     })
